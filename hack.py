@@ -12,15 +12,11 @@ absolute_path = os.path.dirname(os.path.abspath(__file__))
 from transformers import pipeline
 import io
 from deep_translator import GoogleTranslator
-import time 
-from streamlit.web.server.server import Server
-from streamlit.runtime.scriptrunner import add_script_run_ctx
+import time
 
-
-epoch_time = int(time.time())
+epoch = int(time.time())
 
 def gen_conv_text(english_text ,target_lang = 'en'):
-    print('converting text to ',target_lang)
     english_text = english_text.split('\n')
     fi =''
     for i in english_text:
@@ -147,9 +143,10 @@ def read_pdf(file_in_bytes):
     return pdfdoc
 
 
-def gen_audio_of_text(text ,auio_file_number = 0 ,lang='en'):
-    print('generating audio of text')
-    tts = gTTS(text=text, lang=lang, slow=False )
+def gen_audio_of_text(text1 ,auio_file_number = 0 ,lang='en'):
+    time.sleep(5)
+    tts = gTTS(text=text1, lang=lang,lang_check=False ,slow=False,tld='com.au' )
+    time.sleep(5)
     audio = f'{absolute_path}/audio/audio_{auio_file_number}.mp3'
     tts.save(audio)
     song = AudioSegment.from_file_using_temporary_files(audio,format='mp3')
@@ -304,7 +301,7 @@ def show_dashboard_page(session_st):
             options = ["English", "Hindi", "Telugu","Tamil"]
 
             # Create a multiselect dropdown with the options
-            selected_options = st.selectbox("Select language", options)
+            selected_options = st.selectbox("Select options", options)
             lang_keys = {"English": "en", "Hindi": "hi", "Telugu": "te", "Tamil": "ta"}
         # Show the selected options
             submit_button = st.form_submit_button(label="Generate Summary")
@@ -326,7 +323,7 @@ def show_dashboard_page(session_st):
                     mime="text/plain",
                 )
                 fes = gen_conv_text(alltxt,lang_keys[selected_options])
-                ad_path = gen_audio_of_text(fes,epoch_time,lang_keys[selected_options])
+                ad_path = gen_audio_of_text(fes,epoch,lang_keys[selected_options])
                 audio_file = open(ad_path, "rb").read()
 
                 # Play the audio file
