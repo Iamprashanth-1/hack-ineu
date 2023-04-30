@@ -21,6 +21,10 @@ The proposed project aims to develop a system for summarising research papers an
 
 - Step-5: Allowing users to download both summarized and audio file
 
+## Project Flow
+
+![flow](https://github.com/Iamprashanth-1/hack-ineu/blob/master/images/arch.png)
+
 
 ## Run 
 
@@ -58,7 +62,3 @@ Install the project dependencies with pip
   
 ```
     
-## Project Flow
-
-![flow](https://github.com/Iamprashanth-1/hack-ineu/blob/master/images/arch.png)
-

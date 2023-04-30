@@ -304,7 +304,7 @@ def show_dashboard_page(session_st):
             options = ["English", "Hindi", "Telugu","Tamil"]
 
             # Create a multiselect dropdown with the options
-            selected_options = st.selectbox("Select options", options)
+            selected_options = st.selectbox("Select language", options)
             lang_keys = {"English": "en", "Hindi": "hi", "Telugu": "te", "Tamil": "ta"}
         # Show the selected options
             submit_button = st.form_submit_button(label="Generate Summary")
