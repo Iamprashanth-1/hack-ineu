@@ -22,6 +22,32 @@ The proposed project aims to develop a system for summarising research papers an
 - Step-5: Allowing users to download both summarized and audio file
 
 
+## Run 
+
+Clone the project
+
+```bash
+  git clone https://github.com/Iamprashanth-1/hack-ineu.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  pip install -r requirements.txt
+```
+
+Start the server
+
+```bash
+  streamlit run hack.py
+```
+
 
 ## Installation
 
